@@ -28,17 +28,17 @@ services:
     networks:
         - ch_ntw
 
-  sql_server:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    ports:
-      - "1433:1433"
-    volumes:
-      - sqlvolume:/var/opt/mssql
-    environment:
-      SA_PASSWORD: "Pass@word"
-      ACCEPT_EULA: "Y"
-    networks:
-        - ch_ntw
+  # sql_server:
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+  #   ports:
+  #     - "1433:1433"
+  #   volumes:
+  #     - sqlvolume:/var/opt/mssql
+  #   environment:
+  #     SA_PASSWORD: "Pass@word"
+  #     ACCEPT_EULA: "Y"
+  #   networks:
+  #       - ch_ntw
 
 networks:
   ch_ntw:
@@ -50,5 +50,5 @@ networks:
 volumes:
   grafana-storage:
     external: true
-  sqlvolume:
-    external: true
+  #sqlvolume:
+    #external: true
