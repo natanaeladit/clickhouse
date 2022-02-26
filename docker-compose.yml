@@ -33,9 +33,7 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - ./secrets:/var/opt/mssql/secrets
-      - ./log:/var/opt/mssql/log
-      - ./data:/var/opt/mssql/data
+      - sqlvolume:/var/opt/mssql
     environment:
       SA_PASSWORD: "Pass@word"
       ACCEPT_EULA: "Y"
@@ -51,4 +49,6 @@ networks:
 
 volumes:
   grafana-storage:
+    external: true
+  sqlvolume:
     external: true

@@ -2,6 +2,7 @@
 
 ```
 docker volume create grafana-storage
+docker volume create sqlvolume
 docker-compose up
 ```
 
