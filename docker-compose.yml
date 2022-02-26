@@ -19,9 +19,22 @@ services:
     networks:
         - ch_ntw
 
+  grafana:
+    image: grafana/grafana-enterprise
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+        - ch_ntw
+
 networks:
   ch_ntw:
     driver: bridge
     ipam:
       config:
         - subnet: 10.222.1.0/24
+
+volumes:
+  grafana-storage:
+    external: true
