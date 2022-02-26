@@ -28,6 +28,20 @@ services:
     networks:
         - ch_ntw
 
+  sql_server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./secrets:/var/opt/mssql/secrets
+      - ./log:/var/opt/mssql/log
+      - ./data:/var/opt/mssql/data
+    environment:
+      SA_PASSWORD: "Pass@word"
+      ACCEPT_EULA: "Y"
+    networks:
+        - ch_ntw
+
 networks:
   ch_ntw:
     driver: bridge
